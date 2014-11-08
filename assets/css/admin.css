@@ -1,0 +1,95 @@
+html, body {background-color: #fff;overflow-y: auto;}
+a {color: #333;}
+a:hover {color: #111;}
+a, a:hover, a:focus {text-decoration: none;}
+
+*, *:focus, *:active {outline: 0 !important;}
+select:-moz-focusring {color: transparent;text-shadow: 0 0 0 #3E3F3A;}
+
+#wrapper {padding-left: 225px; min-width: 100%;}
+#page-wrapper {padding: 10px;width: 100%;padding: 0;background-color: #fff;}
+
+
+.clear {clear: both;}
+
+#page-wrapper .page-header {color: #FFF; margin: 0px -10px 10px -15px;background-color: #111;width: calc(100% + 30px);padding: 11px;}
+
+
+
+/* CALLOUTS
+***********************************************/
+	.bs-callout {background-color: #fff;padding: 10px;margin: 5px 0px;overflow:hidden;border-width: 0px 5px 0px 5px;border-style: solid;border-color: #EEE;-moz-border-top-colors: none;-moz-border-right-colors: none;-moz-border-bottom-colors: none;-moz-border-left-colors: none;border-image: none;border-radius: 0px;}
+	.bs-callout h4 {margin-top:0;margin-bottom:5px}
+	.bs-callout p:last-child {margin-bottom:0}
+	.bs-callout code {border-radius:0px}
+	.bs-callout ul {margin-top: 10px;list-style: square outside none;font-size: 14px;}
+	.bs-callout + .bs-callout {margin-top:-5px}
+	.bs-callout.status {text-align: center;text-transform: uppercase;color: #FFF;}
+	.bs-callout.status p {font-weight: bold;text-shadow: 0 0 3px #fff;}
+	.bs-callout.danger {border-color:#d9534f;background-color: #FFF2F2;}
+	.bs-callout.danger h4{color:#d9534f}
+	.bs-callout.warning {border-color:#f0ad4e;background-color: #FFFFC6;}
+	.bs-callout.warning h4 {color:#f0ad4e}
+	.bs-callout.info {border-color:#5bc0de;background-color: #E5F9FF;}
+	.bs-callout.info h4 {color:#5bc0de}
+	.bs-callout.success {border-color:#2C8D3A;background-color: #DBFFE0;}
+	.bs-callout.success h4 {color:#2C8D3A;}
+
+/* NAVBAR
+***********************************************/
+	#adminMenu {height: 1000px;position: fixed;left: 225px;width: 225px;margin-left: -225px;border: none;border-radius: 0;background-color: #222;}
+	#adminMenu > li > a {width: 225px; font-size: 16px;}
+	#adminMenu > li > a > i {font-size: 20px;}
+	#adminMenu > li > a:hover,
+	#adminMenu > li > a:focus {outline: none;background-color: #111111 !important;}
+	#adminMenu > li > a.active {outline: none;background-color: #325D88 !important;}
+	#adminMenu > li > ul {padding: 0;}
+	#adminMenu > li > ul > li > a {display: block;padding: 10px 15px 10px 38px;text-decoration: none;color: #999;}
+	#adminMenu > li > ul > li > a:hover {color: #fff;}
+
+/* COLORFUL PANELS
+***********************************************/
+	.panel-green {border-color: #5cb85c;}
+	.panel-green .panel-heading {border-color: #5cb85c;color: #fff;background-color: #5cb85c;}
+	.panel-green a {color: #5cb85c;}
+	.panel-green a:hover {color: #3d8b3d;}
+
+	.panel-red {border-color: #d9534f;}
+	.panel-red .panel-heading {border-color: #d9534f;color: #fff;background-color: #d9534f;}
+	.panel-red a {color: #d9534f;}
+	.panel-red a:hover {color: #b52b27;}
+
+	.panel-yellow {border-color: #f0ad4e;}
+	.panel-yellow .panel-heading {border-color: #f0ad4e;color: #fff;background-color: #f0ad4e;}
+	.panel-yellow a {color: #f0ad4e;}
+	.panel-yellow a:hover {color: #df8a13;}
+
+/* COLORFUL BACKGROUND
+***********************************************/
+.bg-red {background-color: #d9534f !important; border-color: #d9534f !important;}
+.bg-green {background-color: #5cb85c !important; border-color: #5cb85c !important;}
+.bg-yellow {background-color: #f0ad4e !important; border-color: #f0ad4e !important;}
+
+/* COLORFUL TEXTS
+***********************************************/
+.text-white {color: #ffffff !important;}
+.text-white a {color: #ffffff !important;}
+
+
+.btn.btn-noradius {border-radius: 0px !important;}
+.btn.btn-tool {padding: 1px 10px;}
+.navbar {min-height: 0px;}
+.full-width {width: 100% !important;}
+.tools {text-align: center;}
+.container-fluid {overflow: hidden;}
+.contentMenu {margin: 10px 0px; padding: 5px; border-radius: 4px;}
+.contentMenu > li > a {color: #fff; font-size: 13px;}
+.contentMenu > li > a:hover, .contentMenu > li > a:focus {color: #333;}
+
+#sideMenu {}
+#sideMenu .list-group-item {padding: 10px 10px;}
+#sideMenu .list-group-item i {float: right;margin-top: 5px;}
+#sideMenu .list-group-item:hover i {color: #EF5C0E;}
+#sideMenu .submenu {background-color: #EEE;padding: 5px;border-left: 1px solid #DFD7CA;border-right: 1px solid #DFD7CA;}
+#sideMenu .submenu a {display: block;margin-left: 10px;color: #888;}
+#sideMenu .submenu a:hover {margin-left: 15px;color: #999;}
