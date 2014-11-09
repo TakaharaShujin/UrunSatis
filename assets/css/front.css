@@ -3,7 +3,7 @@ a,a:hover, a:focus {text-decoration: none; outline: 0px;}
 header {background-color: #355570; min-height: 100px; border-radius: 0px 0px 4px 4px; margin-bottom: 10px;}
 header .logo {margin-top: 10px;font-size: 50px;color: #FFF;margin-left: 15px; text-decoration: underline;text-transform: uppercase;}
 footer {}
-footer .kategoriler {background-color: #355570; min-height: 150px; border-radius: 4px 4px 4px 4px; margin-top: 10px; padding: 10px 10px 10px 10px; text-align: left; color: #fff;}
+footer .kategoriler {background-color: #355570; min-height: 150px; border-radius: 4px 4px 0px 0px; margin-top: 10px; padding: 10px 10px 10px 10px; text-align: left; color: #fff;}
 footer .baslik {color: FFF; font-size: 14px; border-bottom-color: #FFF; border-bottom-style: solid; border-bottom-width: 1px;}
 
 
@@ -42,18 +42,20 @@ main { border-radius: 4px;}
 .btn.btn-white {color: #325D88;background-color: #ebebeb;border-color: transparent;}
 .btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active, .open > .dropdown-toggle.btn-white {color: #325D88;background-color: #bbbbbb;border-color: transparent;}
 
-.btn.btn-orange {color: #fff;background-color: #EF5C0E;border-color: transparent;}
-.btn-orange:hover, .btn-orange:focus, .btn-orange:active, .btn-orange.active, .open > .dropdown-toggle.btn-orange {color: #fff;background-color: #D34D0A;border-color: #D34D0A;}
+#cerceve {float: left; height: 250px; width: 200px;	margin: 25px 5px 5px; padding: 10px 10px 10px 10px;}
+#cerceve:hover  {border: 1px solid #333; transform: scale(1.1); background-color: #fff; border-radius: 4px;}
+#cerceve button {display: none;}
+#cerceve:hover button {display: block;}
 
-.clear {clear: both;}
+#cerceve .yazi{color: #333;	padding-bottom: 10px; text-align: center;}
 
-.mar1015 {margin: 10px 15px;}
+#cerceve .fiyat{color: #333; padding-bottom: 10px; text-align: center; font-size: 15px;	font-weight: bold;}
 
-
-
-/** QUICK VIEW **/
-	#urunList {}
-	#urunList li {position: relative; overflow: hidden;}
-	#urunList li img {}
-	#urunList li .info {position: absolute; color: #fff; font-size: 16px; left: 20px; bottom: 0px; height: 50px; width: 172px; border-radius: 6px;transform: translateY(50px); transition: .4s;}
-	#urunList li:hover .info {transform: translateY(-5px); transition: .4s;}
+/** Detay **/ /** Bilgi **/
+.urun_bilgi {color: #9C9C9C; line-height: 14px;}
+.urun_bilgi ul {list-style-type: square; padding: 0px 10px; margin: 5px 0px;}
+/** Detay **/ /** Fiyat **/
+.detay span {color: #9C9C9C; font-size: 11px;}
+.eskifiyat {font-size: 22px; text-shadow: 0px 0px 0px; text-decoration: line-through; color: #9F9F9F; margin-bottom: 10px;}
+.sonfiyat {color: #535456; font-size: 30px; margin-bottom: 8px; font-weight: bold;}
+.kazanciniz {color: #535456; font-size: 18px; margin-bottom: 10px;}
