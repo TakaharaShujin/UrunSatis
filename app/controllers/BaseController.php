@@ -8,6 +8,10 @@ class BaseController extends Controller {
 			{
 				$this->layout = View::make($this->layout);
 			}
+			$ayarlar = AyarlarMdl::find(1);
+			$sayfalar = SayfalarMdl::where('durum', '=', 1)->get();
+			$kategoriler = KategorilerMdl::where('ust_kat', '=', 0)->get();
+			View::share(compact('sayfalar', 'ayarlar', 'kategoriler'));
 		}
 
 	public function arrayToObject($array)

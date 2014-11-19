@@ -10,4 +10,9 @@ class Kullanici extends BaseController {
 	{
 		return View::make('front.kullanici.giris-formu');
 	}
+
+	public function kayitFormu()
+	{
+		return View::make('front.kullanici.kayit-formu');
+	}
 }

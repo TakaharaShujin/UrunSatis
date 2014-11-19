@@ -12,8 +12,7 @@ class Anasayfa extends BaseController {
 
 	public function Anasayfa()
 	{
-		$kategoriler = KategorilerMdl::all();
-		$urunler = UrunlerMdl::all();
+		$urunler = UrunlerMdl::orderBy('created_at')->take(12)->get();
 		return View::make('front.sayfalar.anasayfa', compact('kategoriler', 'urunler'));
 	}
 }

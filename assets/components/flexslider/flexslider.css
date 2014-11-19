@@ -1,7 +1,7 @@
-.flexslider {margin:0 0 40px 15px; padding: 0; opacity: 1; -webkit-transition: opacity 1s ease; width:820px;}
+.flexslider {margin:0 0 40px 15px; padding: 0; opacity: 1; -webkit-transition: opacity 1s ease; width: 690px;}
 .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} 
 .flexslider ol,ul,li{margin:0; padding:0; list-style: none;}
-.flexslider .slides img {width: 820px; height:270px; display: block;}
+.flexslider .slides img {width: 690px; height:270px; display: block;}
 .flex-pauseplay span {text-transform: capitalize;}
 
 .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 

@@ -34,7 +34,7 @@
 	Route::post('/admin/merkez/guncelle/{tip}/{id}',	array('as' => 'GuncellemeMerkezi', 	'uses' => 'Station@Guncelle'))->where(array('tip' => '[a-z_]+', 'id' => '[0-9]+'));
 
 	/*************************
-	* Kullanıcı İşlemleri
+	* Kullanıcı Rotaları
 	**************************/
 	Route::group(array('before' => 'auth'), function()
 	{
@@ -46,6 +46,14 @@
 
 	});
 
+	/*************************
+	* Site Rotaları
+	**************************/
+	Route::get('/detay/{sef}', 			array('as' => 'UrunDetay', 			'uses' => 'Urun@Detay'))->where('sef', '[a-z0-9_-]+');
+	Route::get('/kategori/{sef}', 		array('as' => 'Kategori', 			'uses' => 'Kategori@index'))->where('sef', '[a-z0-9_-]+');
+	Route::get('/kategori/alt/{id}',	array('as' => 'KategoriAlt', 		'uses' => 'Kategori@Alt'))->where('id', '[0-9]+');
+	Route::post('/urun-ara',			array('as' => 'UrunAra', 			'uses' => 'Urun@Ara'));
+	Route::get('/sayfa/{sef}', 			array('as' => 'Sayfa', 				'uses' => 'Sayfa@index'))->where('sef', '[a-z0-9_-]+');
 
 
 

@@ -5,107 +5,93 @@
 	<title> @yield('title') </title>
 	{{ HTML::style('assets/components/bootstrap/bootstrap.min.css'); }}
 	{{ HTML::style('assets/components/font-awesome/font-awesome.min.css'); }}
+	{{ HTML::style('assets/css/animate.css'); }}
 	{{ HTML::style('assets/css/front.css'); }}
 	@yield('styles')
 </head>
 <body>
 	<div class="container">
 		<header>
-			<div class="row">
-				<div class="col-lg-3">
-					<figure class="logo">MalMan</figure>
+			<nav class="navbar navbar-default top-menu" role="navigation">
+				<ul class="nav navbar-nav navbar-right user-menu">
+					<li><a href="{{ action('girisFormu') }}">Giriş Yap</a></li>
+					<li><a href="{{ action('kayitFormu') }}">Üye Ol</a></li>
+					<li><a href="{{ action('Sepetim') }}"><i class="fa fa-shopping-cart"></i> Sepetim</a></li>		        
+				</ul>
+			</nav>
+			<figure><a href="{{ action('Anasayfa') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="MalMan"></a></figure>
+			<form action="{{ action('UrunAra') }}" role="search" class="top-search form-inline">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Tüm kategorilerde ara...">
 				</div>
-				<div class="col-lg-6">
-					<form action="#" role="search" class="form-inline" id="topSearch">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Tüm kategorilerde ara..." maxlength="60">
-						</div>
-						<button type="submit" class="btn"><i class="fa fa-search fa-2x"></i></button>
-					</form>
-				</div>
-				<div class="col-lg-3">
-					<div class="btn-group navbar-right" id="userMenu">
-						<a href="" class="btn btn-white">Üye Ol</a>
-						<a href="" class="btn btn-white">Giriş Yap</a>
-						<a href="" class="btn btn-white"><i class="fa fa-shopping-cart"></i> Sepetim</a>
-					</div>
-				</div>
-			</div>
+				<button type="submit" class="btn"><i class="fa fa-search"></i></button>
+			</form>
 		</header>
-		<main>
-			<div class="row">
-				<div class="col-lg-3">
-					<h3 class="title orange">Kategoriler</h3>
-					<div class="list-group" id="sideMenu">
-						@forelse ($kategoriler as $kategori)
-							@if ($kategori->ust_kat == 0)
-							<a href="javascript:;" class="list-group-item" data-toggle="collapse" data-target="#cat-{{ $kategori->id }}" data-parent="#sideMenu" class="collapsed">{{ $kategori->baslik }} <i class="fa fa-chevron-right"></i></a>
-								@forelse($kategoriler as $alt_kategori)
-									<div class="submenu collapse" id="cat-{{ $kategori->id }}">
-									@if ($kategori->id == $alt_kategori->ust_kat)
-										<a href="{{route('AdminUrunler', array('id' => $alt_kategori->id));}}">{{ $alt_kategori->baslik }}</a>
-									@else
-										Alt kategori bulunamadı!
-									@endif
-									</div>
-								@empty
-								@endforelse
-							@endif
-						@empty
-							<div class="alert alert-info">Kategori Bulunamadı!</div>
-						@endforelse
-					</div>
-				</div>
-				<div class="col-lg-9">
+		<section id="Main">
+			<div id="mainContent">
+				<aside class="sideContent">
+					<h3 class="catTitle">Kategoriler</h3>
+					@if (count($kategoriler) > 0)
+						<ul class="catMenu">
+						@foreach ($kategoriler as $kategori)
+							<li><a href="{{ action('Kategori', array($kategori->sef)) }}" class="ajaxMenu" data-id="{{ $kategori->id }}">{{ $kategori->baslik }} <span class="badge">255</span></a></li>
+						@endforeach
+						</ul>
+					@else
+						<div class="alert alert-info">Kategori Bulunamadı!</div>
+					@endif
+					<ul class="sub-menu"></ul>
+				</aside>
+				<div class="innerContent">
 					@yield('content')
 				</div>
+				<div class="clear"></div>
 			</div>
-		</main>
+		</section>
 		<footer>
-			<div class="kategoriler">
-			<div class="baslik"> Kategoriler</div>
-			<div class="col-lg-3">
-			<h5>Kategori 1</h5>
-			<ul>
-				<li>Alt Kategori 1</li>
-				<li>Alt Kategori 2</li>
-				<li>Alt Kategori 3</li>
-				<li>Alt Kategori 4</li>
-			</ul>
+			<div class="top">
+				<div class="col">
+					<h5>Site Haritası</h5>
+					<ul>
+						<li><a href="{{ action('Anasayfa') }}">Anasayfa</a></li>
+						@if (count($kategoriler) > 0)
+							@foreach ($sayfalar as $sayfa)
+								<li><a href="{{ action('Sayfa', array($sayfa->sef)) }}">{{ $sayfa->baslik }}</a></li>
+							@endforeach
+						@endif
+					</ul>
+				</div>
+				<div class="col">
+					<h5>Kategoriler</h5>
+					@if (count($kategoriler) > 0)
+						<ul>
+						@foreach ($kategoriler as $kategori)
+							<li><a href="{{ action('Kategori', array($kategori->sef)) }}">{{ $kategori->baslik }}</a></li>
+						@endforeach
+						</ul>
+					@else
+						<div class="alert alert-info">Kategori Bulunamadı!</div>
+					@endif
+				</div>
+				<div class="col">
+					<h5>Takip Edin!</h5>
+					<ul class="social-link">
+						<li><a href="{{ $ayarlar->facebook }}" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i> Facebook</a></li>
+						<li><a href="{{ $ayarlar->twitter }}" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i> Twitter</a></li>
+						<li><a href="{{ $ayarlar->instagram }}" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i> İnstagram</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<img src="{{ asset('assets/images/secure.png') }}" alt="" width="100%">
+				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="col-lg-3">
-			<h5>Kategori 1</h5>
-			<ul>
-				<li>Alt Kategori 1</li>
-				<li>Alt Kategori 2</li>
-				<li>Alt Kategori 3</li>
-				<li>Alt Kategori 4</li>
-			</ul>
-			</div>
-			<div class="col-lg-3">
-			<h5>Kategori 1</h5>
-			<ul>
-				<li>Alt Kategori 1</li>
-				<li>Alt Kategori 2</li>
-				<li>Alt Kategori 3</li>
-				<li>Alt Kategori 4</li>
-			</ul>
-			</div>
-			<div class="col-lg-3">
-			<h5>Kategori 1</h5>
-			<ul>
-				<li>Alt Kategori 1</li>
-				<li>Alt Kategori 2</li>
-				<li>Alt Kategori 3</li>
-				<li>Alt Kategori 4</li>
-			</ul>
-			</div>
-			</div><hr>
-			Anasayfa | Hakkımızda | İletişim
+			<div class="bottom">Atsepete.in &copy; 2014 | All rights reserved.</div>
 		</footer>
 	</div>
 	{{ HTML::script('assets/js/jquery.min.js'); }}
 	{{ HTML::script('assets/components/bootstrap/bootstrap.min.js'); }}
+	{{ HTML::script('assets/js/custom.js'); }}
 	@yield('scripts')
 </body>
 </html>

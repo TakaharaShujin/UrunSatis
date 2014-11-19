@@ -5,7 +5,6 @@
 @endsection
 @section('scripts')
 {{ HTML::script('assets/components/flexslider/flexslider.js'); }}
-{{ HTML::script('assets/components/velocity/velocity.min.js'); }}
 @endsection
 
 @section('content')
@@ -15,19 +14,20 @@
 			<li>
 				<div><a href="#" rel="bookmark" target="_blank">Konu Başlığı</a></div>
 				<a href="h#" rel="bookmark" target="_blank">
-					<img width="690" height="270" src="images/Slider/resim1.jpg" alt="Resim 1" />
+					<img width="690" height="270" src="{{ asset('assets/images/Slider/resim1.jpg'); }}" alt="Resim 1" />
 				</a>
 			</li>
 			<li>
 				<div><a href="#" rel="bookmark" target="_blank">Konu Başlığı</a></div>
 				<a href="h#" rel="bookmark" target="_blank">
-					<img width="690" height="270" src="images/Slider/resim2.jpg" alt="Resim 2" />
+					<img width="690" height="270" src="{{ asset('assets/images/Slider/resim2.jpg'); }}" alt="Resim 2" />
 				</a>
 			</li>
 		</ul>
 	</div>
 </section>
-<div class="" id="homeMenu">
+<!--
+<div class="midi-menu o-h">
 	<div class="col-lg-3">
 		<figure>
 			<h3>Kategori 1</h3>
@@ -73,20 +73,24 @@
 		</figure>
 	</div>
 </div>
+-->
+<h1 class="title orange">Günün Ürünleri</h1>
 <div class="clear"></div>
-<h1 class="title orange mar1015">Günün Ürünleri</h1>
 	@if(count($urunler) >0)
-		<ul id="urunList">
+		<ul class="urunList">
 		@foreach($urunler as $urun)
-			<li class="urun col-lg-3">
-				<img src="https://placeimg.com/200/250/tech" alt="{{ $urun->baslik }}" class="img-responsive img-rounded">
-				<button class="btn btn-orange info">Hızlı Görünüm</button>
+			<li class="urun">
+				<figure>
+					<img src="{{ asset('assets/images/urun.jpg') }}" alt="{{ $urun->baslik }}">
+					<figcaption>
+						<h3>{{ $urun->baslik }}</h3>
+						<span>{{ $urun->fiyat }} TL</span>
+						<a href="{{ action('UrunDetay', array($urun->sef)) }}" class="btn btn-warning btn-block btn-xs"><i class="fa fa-search"></i> İncele</a>
+					</figcaption>
+				</figure>
 			</li>
 		@endforeach
 		</ul>
-		@foreach($urunler as $urun)
-			
-		@endforeach
 	@else
 		<div class="alert alert-info mar1015">
 		<!--<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>-->
@@ -95,3 +99,4 @@
 		</div>
 	@endif
 @endsection
+
